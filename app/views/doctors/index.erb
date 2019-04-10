@@ -1,0 +1,8 @@
+<% @doctors.each do |doctor| %>
+  <p><%= doctor.name %></p>
+  <ul>
+    <% doctor.appointments.each do |appt| %>
+    <li><%= appt.patient.name %> - <%= appt.appointment_datetime%></li>
+    <% end %>
+  </ul>
+<% end %>

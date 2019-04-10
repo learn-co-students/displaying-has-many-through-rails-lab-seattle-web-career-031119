@@ -1,0 +1,13 @@
+<!-- # ERB COMMENT BLOCK: will comment out HTML and Rails
+<% if false %>
+<h1><%= link_to @appointment.doctor.name, @appointment.doctor %> </h1>
+<h2><%= link_to @appointment.patient.name, @appointment.patient %> </h2>
+<%= @appointment.appointment_datetime %>
+<% end %>
+-->
+<h1> <%= @patient.name %> </h1>
+<ul>
+<% @patient.appointments.each do |appt| %>
+<li><%= link_to appt.doctor.name, appt.doctor %> <%= link_to appt.appointment_datetime.strftime("%B %d, %Y at %R") %> </li>
+<% end %>
+</ul>
