@@ -1,0 +1,13 @@
+<%= @doctor.name %><br>
+<%= @doctor.department %><br>
+<br>
+Patient(s): <br>
+<% @doctor.patients.uniq.each do |pat| %>
+<%= link_to pat.name, patient_path(pat) %><br>
+<% end %>
+<br>
+Appointments: <br>
+<% @doctor.appointments.each do |ap| %>
+<%= ap.appointment_datetime.strftime("%B %d, %Y at %H:%M") %><br>
+<%= link_to ap.patient.name, patient_path(ap.patient) %><br>
+<% end %>
